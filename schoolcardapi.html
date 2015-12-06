@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://localhost:8080/schoolcard/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+<style>
+html {
+	font-size: 15px;
+	font-family: "微软雅黑";
+}
+
+div {
+	border-color: #000;
+	border-width: 0px;
+	border-style: solid;
+}
+
+hr {
+	width: 80%;
+	color: #888;
+}
+
+.list {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.title {
+	text-align: center;
+	font-size: 24px;
+	background-color: #60AABF;
+	color: #FAFAA0;
+}
+
+.title a {
+	color: #FAFAA0;
+	text-decoration: none;
+}
+
+.title1 {
+	text-align: center;
+	font-size: 20px;
+	background-color: #bcbcbc;
+}
+
+table.gridtable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+#fl_menu {
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	z-index: 9999;
+	width: 150px;
+	height: 50px;
+}
+
+#fl_menu .label {
+	padding-left: 20px;
+	line-height: 50px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #000;
+	color: #fff;
+	letter-spacing: 7px;
+}
+
+#fl_menu .menu {
+	display: none;
+}
+
+#fl_menu .menu .menu_item {
+	display: block;
+	background: #000;
+	color: #bbb;
+	border-top: 1px solid #333;
+	padding: 10px 20px;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#fl_menu .menu a.menu_item:hover {
+	background: #333;
+	color: #fff;
+}
+</style>
+<script type="text/javascript" src="./schoolcardapi_files/jquery-1.4.2.min.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./schoolcardapi_files/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+	function FloatMenu() {
+		var animationSpeed = 1500;
+		var animationEasing = 'easeOutQuint';
+		var scrollAmount = $(document).scrollTop();
+		var newPosition = menuPosition + scrollAmount;
+		if ($(window).height() < $('#fl_menu').height()
+				+ $('#fl_menu .menu').height()) {
+			$('#fl_menu').css('top', menuPosition);
+		} else {
+			$('#fl_menu').stop().animate({
+				top : newPosition
+			}, animationSpeed, animationEasing);
+		}
+	}
+	$(window).load(function() {
+		menuPosition = $('#fl_menu').position().top;
+		FloatMenu();
+	});
+	$(window).scroll(function() {
+		FloatMenu();
+	});
+	$(document)
+			.ready(
+					function() {
+						var fadeSpeed = 500;
+						$("#fl_menu").hover(function() {
+							$('#fl_menu .label').fadeTo(fadeSpeed, 1);
+							$("#fl_menu .menu").fadeIn(fadeSpeed);
+						}, function() {
+							$('#fl_menu .label').fadeTo(fadeSpeed, 0.75);
+							$("#fl_menu .menu").fadeOut(fadeSpeed);
+						});
+						//======================
+						$('a[href*=#]')
+								.click(
+										function() {
+											if (location.pathname.replace(
+													/^\//, '') == this.pathname
+													.replace(/^\//, '')
+													&& location.hostname == this.hostname) {
+												var $target = $(this.hash);
+												$target = $target.length
+														&& $target
+														|| $('[name='
+																+ this.hash
+																		.slice(1)
+																+ ']');
+												if ($target.length) {
+													var targetOffset = $target
+															.offset().top;
+													$('html,body')
+															.animate(
+																	{
+																		scrollTop : targetOffset
+																	}, 1000);
+													return false;
+												}
+											}
+										});
+					});
+</script>
+
+<title>校园卡API文档</title>
+<style type="text/css"></style>
+</head>
+<body ryt11577="1">
+	<div id="fl_menu" style="top: 50px;">
+		<div class="label">快速导航</div>
+		<div class="menu">
+			<a href="http://localhost:8080/schoolcard/#aaa0" class="menu_item">简单示例</a> <a href="http://localhost:8080/schoolcard/#aaa1" class="menu_item">认证</a> <a href="http://localhost:8080/schoolcard/#aaa2" class="menu_item">消费流水查询</a>
+			<a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa3" class="menu_item">公寓电控查询</a><a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa4" class="menu_item">报名消费查询</a> <a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa5" class="menu_item">网络充值</a> <a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa6" class="menu_item">个人账户信息</a> <a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa7" class="menu_item">公寓楼房间缴费</a><a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa8" class="menu_item">校园卡挂失</a><a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa9" class="menu_item">校园卡解挂</a><a href="http://localhost:8080/schoolcard/SchoolCard_API.jsp#aaa10" class="menu_item">失卡招领</a>
+		</div>
+	</div>
+
+	<center>
+		<h2>校园卡API说明文档</h2>
+		<center>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa0">1、简单示例</a>
+				</div>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>示例请求</center></td>
+									<td><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=xflscx&xykh=123456&mm=123456">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=xflscx&amp;xykh=123456&amp;mm=123456</a></td>
+								</tr>
+								<tr>
+									<td><center>API地址</center></td>
+									<td>接口地址/main?</td>
+								</tr>
+								<tr>
+									<td><center>签名</center></td>
+									<td>sign=e2eba480b6aaec7418dc09920d78ba71</td>
+								</tr>
+								<tr>
+									<td><center>调用模块</center></td>
+									<td>action=xflscx</td>
+								</tr>
+								<tr>
+									<td><center>模块所需参数</center></td>
+									<td>xykh=123456&amp;mm=123456</td>
+								</tr>
+								<tr>
+									<td><center>说明</center></td>
+									<td>sign在每次调用都是必须的,具体算法请看认证章节。</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>。。。</center></td>
+									<td>json数组，请参照以下具体说明</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa1">2、认证</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?action=key">接口地址/main?action=key</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>key</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>key</center></td>
+									<td>32位key值（用于生成签名，校验请求合法性）<br>Sign生成算法：sign=MD5（密钥+key）
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa2">3、消费流水查询</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=xflscx&xykh=123456&mm=123456&days=7">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=xflscx&amp;xykh=123456&amp;mm=123456&amp;days=7</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>xflscx</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+								<tr>
+									<td><center>days</center></td>
+									<td>查询最近days天的消费情况</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>ZH</center></td>
+									<td>账号</td>
+								</tr>
+								<tr>
+									<td><center>LSLX</center></td>
+									<td>流水类型</td>
+								</tr>
+								<tr>
+									<td><center>JYE</center></td>
+									<td>交易额</td>
+								</tr>
+								<tr>
+									<td><center>YE</center></td>
+									<td>余额</td>
+								</tr>
+								<tr>
+									<td><center>FSJD</center></td>
+									<td>发生节点</td>
+								</tr>
+								<tr>
+									<td><center>ZXLSH</center></td>
+									<td>中心流水号</td>
+								</tr>
+								<tr>
+									<td><center>ZXRZSJ</center></td>
+									<td>中心入账时间</td>
+								</tr>
+								<tr>
+									<td><center>FDLSH</center></td>
+									<td>发端流水号</td>
+								</tr>
+								<tr>
+									<td><center>FDSJ</center></td>
+									<td>发端时间</td>
+								</tr>
+								<tr>
+									<td><center>ZD</center></td>
+									<td>终端</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa3">4、公寓电控查询</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=gydkcx&xykh=123456&mm=123456&id=11&room=616">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=gydkcx&amp;xykh=123456&amp;mm=123456&amp;id=11&amp;room=616</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>gydkcx</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+								<tr>
+									<td><center>id</center></td>
+									<td>宿舍楼号</td>
+								</tr>
+								<tr>
+									<td><center>room</center></td>
+									<td>房间号</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>ZH</center></td>
+									<td>账号</td>
+								</tr>
+								<tr>
+									<td><center>XM</center></td>
+									<td>姓名</td>
+								</tr>
+								<tr>
+									<td><center>JYE</center></td>
+									<td>交易额</td>
+								</tr>
+								<tr>
+									<td><center>JFXM</center></td>
+									<td>缴费项目</td>
+								</tr>
+								<tr>
+									<td><center>RZSJ</center></td>
+									<td>入账时间</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa4">5、报名消费查询</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=bmsfcx&xykh=123456&mm=123456">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=bmsfcx&amp;xykh=123456&amp;mm=123456</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>bmsfcx</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>ZH</center></td>
+									<td>账号</td>
+								</tr>
+								<tr>
+									<td><center>XM</center></td>
+									<td>姓名</td>
+								</tr>
+								<tr>
+									<td><center>JYE</center></td>
+									<td>交易额</td>
+								</tr>
+								<tr>
+									<td><center>JFXM</center></td>
+									<td>缴费项目</td>
+								</tr>
+								<tr>
+									<td><center>RZSJ</center></td>
+									<td>入账时间</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa5">6、网络充值</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=wlcz&xykh=123456&mm=123456&cash=0.1">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=wlcz&amp;xykh=123456&amp;mm=123456&amp;cash=0.1</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>wlcz</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+								<tr>
+									<td><center>cash</center></td>
+									<td>金额</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>info</center></td>
+									<td>交易信息</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa6">6、个人账户信息</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=grzh&xykh=123456&mm=123456">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=grzh&amp;xykh=123456&amp;mm=123456</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>grzh</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>ZH</center></td>
+									<td>账号</td>
+								</tr>
+								<tr>
+									<td><center>XM</center></td>
+									<td>姓名</td>
+								</tr>
+
+								<tr>
+									<td><center>KZT</center></td>
+									<td>卡状态</td>
+								</tr>
+
+								<tr>
+									<td><center>ZHZT</center></td>
+									<td>账户状态</td>
+								</tr>
+
+								<tr>
+									<td><center>XSZH</center></td>
+									<td>学生证号</td>
+								</tr>
+								<tr>
+									<td><center>ZCSH</center></td>
+									<td>注册时间</td>
+								</tr>
+								<tr>
+									<td><center>SZBM</center></td>
+									<td>所在部门</td>
+								</tr>
+								<tr>
+									<td><center>YE</center></td>
+									<td>余额</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa7">7、公寓楼房间缴费</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=gyjf&xykh=123456&mm=123456&id=11&room=616&cash=0.1">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=gyjf&amp;xykh=123456&amp;mm=123456&amp;id=11&amp;room=616&amp;cash=0.1</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>gyjf</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+								<tr>
+									<td><center>id</center></td>
+									<td>宿舍楼号</td>
+								</tr>
+								<tr>
+									<td><center>room</center></td>
+									<td>房间号</td>
+								</tr>
+								<tr>
+									<td><center>cash</center></td>
+									<td>金额</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>info</center></td>
+									<td>交易信息</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa8">8、校园卡挂失</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=gs&xykh=123456&mm=123456">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=gs&amp;xykh=123456&amp;mm=123456</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>gs</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>info</center></td>
+									<td>挂失信息</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa9">9、校园卡解挂</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=jg&xykh=123456&mm=123456">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=jg&amp;xykh=123456&amp;mm=123456</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>jg</td>
+								</tr>
+								<tr>
+									<td><center>xykh</center></td>
+									<td>校园卡号</td>
+								</tr>
+								<tr>
+									<td><center>mm</center></td>
+									<td>密码</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>info</center></td>
+									<td>解挂信息</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<div class="list">
+				<div class="title">
+					<a name="aaa10">10、失卡招领</a>
+				</div>
+				<table class="gridtable" width="100%">
+					<tbody>
+						<tr>
+							<th width="100px">请求示例</th>
+							<th align="left"><a target="_blank" href="http://localhost:8080/schoolcard/%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80/main?sign=e2eba480b6aaec7418dc09920d78ba71&action=skzl">接口地址/main?sign=e2eba480b6aaec7418dc09920d78ba71&amp;action=skzl</a>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="content">
+					<div class="title1">输入</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>action</center></td>
+									<td>skzl</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="title1">返回</div>
+					<div class="table">
+						<table class="gridtable" width="100%">
+							<tbody>
+								<tr>
+									<th width="100px">参数名称</th>
+									<th>取值说明</th>
+								</tr>
+								<tr>
+									<td><center>kh</center></td>
+									<td>卡号信息</td>
+								</tr>
+								<tr>
+									<td><center>xm</center></td>
+									<td>姓名信息</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			------------------ <br>
+
+		</center>
+	</center>
+
+</body></html>

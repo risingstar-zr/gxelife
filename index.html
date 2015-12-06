@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta name="baidu-site-verification" content="h0X1ylhq4d" />
+        <title>高校e生活</title>
+        <meta name="description" content="德州学院官方微信平台--高校e生活--risingstar团队" />
+        <meta name="keywords" content="高校教务微信平台,risingstar,德州学院,dzu-risingstar,德州学院risingstar团队"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+        <link href="./wx_files/main.css" rel="stylesheet" type="text/css" />
+        <link href="./wx_files/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="./wx_files/logo.png" />
+        <script type="text/javascript" src="./wx_files/jquery.js"></script>
+        <script type="text/javascript" src="./wx_files/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="./wx_files/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="./wx_files/hoverIntent.js"></script>
+        <script type="text/javascript" src="./wx_files/jquery.sfmenu.js"></script>
+        <script type="text/javascript" src="./wx_files/retina.js"></script>
+        <script type="text/javascript" src="./wx_files/custom.js"></script>
+        <script type="text/javascript" src="./wx_files/jquery.fancybox.js"></script>
+        <script type="text/javascript">
+                jQuery(window).load(function() {
+
+                jQuery('.slider').flexslider();
+
+                // Create the dropdown base
+                jQuery("<select />").appendTo(".topmenu");
+
+                // Create default option "Go to..."
+                jQuery("<option />", {
+                "selected": "selected",
+                "value": "",
+                "text": "Menu"
+                }).appendTo(".topmenu select");
+
+                // Populate dropdown with menu items
+                jQuery(".topmenu a").each(function() {
+                var el = jQuery(this);
+                jQuery("<option />", {
+                "value": el.attr("href"),
+                "text": el.text()
+                }).appendTo(".topmenu select");
+                });
+
+                jQuery(".topmenu select").change(function() {
+                window.location = jQuery(this).find("option:selected").val();
+                });
+
+                jQuery('.fancybox').fancybox();
+
+                });
+        </script>
+    </head>
+    
+    <body>
+        <div id="header_wrapper">
+            <!-- Start of content wrapper -->
+            <div class="content_wrapper">
+                <!-- Start of logo -->
+                <div id="logo">
+                    <a href="#">
+                        <img src="./wx_files/logo.png" width="65" height="65" alt="高校e生活" />
+                        <img src="./wx_files/1439635166_484668.png" height="45" alt="高校e生活" />
+                    </a>
+                </div>
+                <!-- End of logo -->
+                <!-- Start of top menu wrapper -->
+                <div class="topmenuwrapper">
+                    <!-- Start of topmenu -->
+                    <nav class="topmenu">
+                        <ul class="sf-menu sf-js-enabled sf-shadow">
+                            <li class="">
+                                <a class="active sf-with-ul" href="wx.html">
+                                    主页
+                                    <span class="sf-sub-indicator">
+                                        &raquo;
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="" class="sf-with-ul">
+                                    接口文档
+                                    <span class="sf-sub-indicator">
+                                        &raquo;
+                                    </span>
+                                </a>
+                                <ul class="sub-menu" style="float: none; display: none; visibility: hidden;">
+                                    <li style="white-space: normal; float: left; width: 100%;">
+                                        <a href="http://www.risingstar.xyz/dzu/" target="_blank"
+                                        style="float: none; width: auto;">
+                                            高校e生活API说明文档
+                                        </a>
+                                    </li>
+                                    <li style="white-space: normal; float: left; width: 100%;">
+                                        <a href="schoolcardapi.html" target="_blank"
+                                        style="float: none; width: auto;">
+                                            一卡通API说明文档
+                                        </a>
+                                    </li>
+                                    <li style="white-space: normal; float: left; width: 100%;">
+                                        <a href="http://itsth.sinaapp.com/" target="_blank"
+                                        style="float: none; width: auto;">
+                                            教师课表API说明文档
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="http://wxdzxxy.sinaapp.com/admin.php/Login/login" target="_blank">
+                                    后台登录
+                                </a>
+                            </li>
+                           
+                            <li>
+                                <a href="http://www.risingstar.xyz/weixin/"  target="_blank">
+                                    关于
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- End of topmenu -->
+                    <!-- Start of header phone -->
+                    <div class="header_phone" onclick="javascript:location.href='#attentionus'">
+                        关注微信
+                    </div>
+                    <!-- End of header phone -->
+                    <!-- Clear Fix -->
+                    <div class="clear">
+                    </div>
+                </div>
+                <!-- End of top menu wrapper -->
+                <!-- Start of slider wrapper -->
+                <section class="slider_wrapper">
+                    <!-- Start of slider -->
+                    <section class="slider" style="overflow: hidden;">
+                        <ul class="slides" style="-webkit-transition-duration: 0s; transition-duration: 0s; width: 1200%; -webkit-transform: translate3d(-980px, 0px, 0px);">
+                            <li class="clone" style="width: 980px; float: left; display: block;">
+                                <div class="two_third">
+                                    <h2>
+                                        在这里，你可以得到更多。
+                                    </h2>
+                                    <p style="font-size:22px">
+                                        &nbsp;&nbsp;使用我们的“高校e生活”微信公共平台，在一次绑定后即可使用课表查询、成绩查询等功能，更有自习室查询、蹭课查询方便学霸的业余生活。更有一卡通、学院新闻、e掌社区等功能在等着你。
+                                    </p>
+                                </div>
+                                <div style="margin-left:200px">
+                                    <img src="./wx_files/QQ截图20150815173508.png" alt="image slide" style="width:66%;"
+                                    />
+                                </div>
+                                <!-- End of two third -->
+                            </li>
+                            <li style="width: 980px; float: left; display: block;">
+                                <a href="#">
+                                    <img src="./wx_files/QQ截图20150815171539.png" alt="image slide 2" />
+                                </a>
+                            </li>
+                            <li style="width: 980px; float: left; display: block;">
+                                <a href="#">
+                                    <img src="./wx_files/20150815170445.png" alt="image slide" />
+                                </a>
+                            </li>
+                        </ul>
+                        <ol class="flex-control-nav">
+                            <li>
+                                <a class="active">
+                                    1
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    2
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    3
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    4
+                                </a>
+                            </li>
+                        </ol>
+                        <ul class="flex-direction-nav">
+                            <li>
+                                <a class="prev" href="#">
+                                    Prev
+                                </a>
+                            </li>
+                            <li>
+                                <a class="next" href="#">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                    <!-- End of slider -->
+                    <!-- Start of clear fix -->
+                    <div class="clear">
+                    </div>
+                </section>
+                <!-- End of slider wrapper -->
+            </div>
+            <!-- End of content wrapper -->
+            <!-- Clear Fix -->
+            <div class="clear">
+            </div>
+        </div>
+        <!-- End of header wrapper -->
+        <!-- Start of content wrapper -->
+        <div id="contentwrapper">
+            <!-- Start of content wrapper -->
+            <div class="content_wrapper">
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    <h2 class="green">
+                        <a href="#">
+                            我们的平台更了解你的生活。
+                        </a>
+                    </h2>
+                    <!-- Start of intro -->
+                    <div class="intro">
+                        &nbsp;&nbsp;现在的高校生活被各种各样的系统所充斥，查成绩要去教务系统，充网费充电费要去校园卡管理系统，图书的查询续借要去图书管理系统，看新闻去学校新闻网，查教务通知要去教务处官网。虽然这些系统的存在已经大大的方便了我们的生活，但是这还不够。。。
+                        <br>
+                        <br>
+                        &nbsp;&nbsp;为了方便高校学生的生活，我们将这些系统的功能进行了整合。
+                    </div>
+                    <!-- End of intro -->
+                    <strong>
+                    </strong>
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <img class="alignright" src="./wx_files/QQ截图20150815185128.png" width="389"
+                    height="437" alt="product shot 1" />
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    <h2>
+                        <a href="#">
+                             首要任务是上课...
+                        </a>
+                    </h2>
+                    <p>
+                        &nbsp;&nbsp;在大学校园里，找教室上课是必备技能，有了我们的“高校e生活”，你就不用再问去哪上课犯愁了。可以查看今日课程、明日课程、本周课程。更有查看同学的功能，让你找到那个ta。
+                    </p>
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <img class="alignright" src="./wx_files/jdfw01.gif" 
+                     alt="product graph" />
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    
+                       <img class="alignright" src="./wx_files/jdfw02.gif"   />
+                    
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <h2 class="blue">
+                        <a href="#">
+                            童鞋，挂科了吗？
+                        </a>
+                    </h2>
+                    <p>
+                        &nbsp;&nbsp;有云：“不挂科的大学，不是完美的大学”。<br>
+                        &nbsp;&nbsp;在这里可以查询上学期成绩，本学期成绩，更可以自定义查询，方面你的各种需要。<br>
+                       &nbsp;&nbsp; 听说，在这里查成绩不会挂科。
+                    </p>
+                    <!-- Start of button blue -->
+                    <div class="button_blue">
+                        <a href="#attentionus">
+                            扫一扫，不挂科
+                        </a>
+                    </div>
+                    <!-- End of button blue -->
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    <h2 class="blue">
+                        <a href="#" >
+                        &nbsp;   致 学霸。
+                        </a>
+                    </h2>
+                    <p>
+                        &nbsp;&nbsp;学霸想自习？自习室查询。<br>
+                        &nbsp;&nbsp;学霸想蹭课？蹭课查询。<br>
+                        &nbsp;&nbsp;学霸想考试了？请使用考试安排查询。<br>
+                        &nbsp;&nbsp;方便你的“霸”道生活！<br>
+                    </p>
+                     <div class="button_blue">
+                      <a href="#attentionus" style="  margin-left: 50px;">
+                            点此成为学霸
+                        </a>
+                    </div>
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <img class="alignright" src="./wx_files/jdfw03.gif" 
+                     alt="product graph" />
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                       <img class="alignright" src="./wx_files/jdfw04.gif"   />
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <h2 class="blue">
+                        <a href="#">
+                            就是这么方便！
+                        </a>
+                    </h2>
+                    <p>
+                        &nbsp;&nbsp;还在圈存机旁排队等待吗？<br>&nbsp;&nbsp;还在餐厅阿姨扣错费而急躁吗？<br>&nbsp;&nbsp;还在抱着图书去图书馆续借吗？<br>&nbsp;&nbsp;还在为错过热点新闻苦恼吗？<br>&nbsp;&nbsp;还在因为没看到教务通知而错过重大活动吗？<br>
+                        &nbsp;&nbsp;在这里可以“充电费”、“充网费”、“查消费”、“挂失”、“解挂”、“查图书”、“续借”、“看新闻”、“看教务”...
+                    </p>
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    <h2 class="blue">
+                        <a href="#" >
+                        &nbsp;   还有 社区交流。
+                        </a>
+                    </h2>
+                    <p style="  margin-left: 45px;">
+                        &nbsp;&nbsp;有题目不会来这里。<br>
+                        &nbsp;&nbsp;找不到资料来这里。<br>
+                        &nbsp;&nbsp;和老师交流来这里。<br>
+                        &nbsp;&nbsp;小e社区，成就你的成才梦。<br>
+                    </p>
+                     
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <img class="alignright" src="./wx_files/jdfw05.gif" 
+                     alt="product graph" />
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                 <!-- Start of one half first -->
+                <div class="one_half_first">
+                    
+                       <img class="alignright" src="./wx_files/jdfw06.gif"   />
+                    
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <h2 class="blue">
+                        <a href="#">
+                            更有贴心功能。
+                        </a>
+                    </h2>
+                    <p>
+                        &nbsp;&nbsp;失物招领帮你即时找到丢失的物品。可以即时发布丢失物品信息。<br>
+                        &nbsp;&nbsp;E掌商城帮你选购合适的食品。更有送货上门服务关爱你的“宅”生活。
+                    </p>
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    <h2 class="blue">
+                        <a href="#" >
+                        &nbsp;课余时间做点啥。
+                        </a>
+                    </h2>
+                    <p style="  margin-left: 45px;">
+                        &nbsp;&nbsp;还在为空闲时间无事可做犯愁吗？<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        --去高校e生活兼职招聘啊。<br>
+                        &nbsp;&nbsp;这里有最新的兼职招聘信息，<br>
+                        &nbsp;&nbsp; &nbsp;&nbsp;方便勤劳的你。<br>
+                    </p>
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <img class="alignright" src="./wx_files/jdfw07.gif" 
+                     alt="product graph" />
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div>
+                <hr />
+
+                 <!-- Start of one half first -->
+                <div class="one_half_first" style="  width: 58%;">
+                    
+                       <img class="alignright" src="./wx_files/jdfw08.gif"   />
+                    
+                </div>
+                <!-- End of one half first -->
+                <!-- Start of one half -->
+                <div class="one_half" style="  width: 32%;">
+                    <h2 class="blue">
+                        <a href="#">
+                            我们也想用。
+                        </a>
+                    </h2>
+                    <p>
+                        &nbsp;&nbsp;这么好的平台怎么只有你们有。<br>
+                        &nbsp;&nbsp;不是的，你们也可以用。随着我们的发展，我们都可以用。只有一次绑定，以后就不用愁了。
+                    </p>
+                </div>
+                <!-- End of one half -->
+                <div class="clear">
+                </div> 
+                <hr />
+                <!-- Start of one half first -->
+                <div class="one_half_first">
+                    <h3 class="blue">
+                        合作机构
+                    </h3>
+                    <!-- Start of homepage slider section -->
+                    <div class="homepage_slider_section">
+                        <!-- Start of slider -->
+                        <section class="slider" style="overflow: hidden;">
+                            <ul class="slides" style="-webkit-transition-duration: 0s; transition-duration: 0s; width: 1200%; -webkit-transform: translate3d(-470px, 0px, 0px);">
+                                <li class="clone" style="width: 470px; float: left; display: block;">
+                                    <a href="#" target="_blank" title="Client Slide Title 4">
+                                        <img src="./wx_files/QQ截图20150816144948.png" alt="client slide 4" />
+                                    </a>
+                                </li>
+                                <li style="width: 470px; float: left; display: block;">
+                                    <a href="#" target="_blank" title="Client Slide Title">
+                                        <img src="./wx_files/xsc.png" alt="client slide" />
+                                    </a>
+                                </li>
+                                <li style="width: 470px; float: left; display: block;">
+                                    <a href="#" target="_blank" title="Client Slide Title">
+                                        <img src="./wx_files/kjcxxh.png" alt="client slide" />
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                            <ol class="flex-control-nav">
+                                <li>
+                                    <a class="active">
+                                        1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        2
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        3
+                                    </a>
+                                </li>
+                            </ol>
+                            <ul class="flex-direction-nav">
+                                <li>
+                                    <a class="prev" href="#">
+                                        Prev
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="next" href="#">
+                                        Next
+                                    </a>
+                                </li>
+                            </ul>
+                        </section>
+                        <!-- End of slider -->
+                    </div>
+                    <!-- End of homepage slider section -->
+                </div>
+                <!-- End of one half first -->
+                <div class="copyrights">
+                </div>
+                <!-- Start of one half -->
+                <div class="one_half">
+                    <h3 class="blue">
+                        我们的团队
+                    </h3>
+                    <!-- Start of homepage slider section -->
+                    <div class="homepage_slider_section">
+                        <!-- Start of slider -->
+                        <section class="slider" style="overflow: hidden;">
+                            <ul class="slides" style="-webkit-transition-duration: 0s; transition-duration: 0s; width: 1200%; -webkit-transform: translate3d(-470px, 0px, 0px);">
+                                <li class="clone" style="width: 470px; float: left; display: block;">
+                                    <img src="./wx_files/253117.jpg" alt="blog slide 4" />
+                                    <div class="flex-caption">
+                                        <div class="contentright">
+                                            队长
+                                        </div>
+                                        <h4>
+                                            张瑞
+                                        </h4>
+                                        <p>
+                                            德州学院计算机网络技术专业。<br>
+                                            2013年入学，主要学习PHP语言，熟悉Java语言的使用。
+                                        </p>
+                                       
+                                    </div>
+                                </li>
+                                <li style="width: 470px; float: left; display: block;">
+                                    <img src="./wx_files/25311722.jpg" alt="blog slide" />
+                                    <div class="flex-caption">
+                                        <div class="contentright">
+                                            PHP开发
+                                        </div>
+                                        <h4>
+                                            于金帅
+                                        </h4>
+                                        <p>
+                                            德州学院信息管理与信息系统专业<br>
+                                            2012年入学，主要学习PHP语言，熟悉Java开发。
+                                        </p>
+                                    </div>
+                                </li>
+                                <li style="width: 470px; float: left; display: block;">
+                                    <img src="./wx_files/2531173.jpg" alt="blog slide 1" />
+                                    <div class="flex-caption">
+                                        <div class="contentright">
+                                            Java开发
+                                        </div>
+                                        <h4>
+                                            周生明
+                                        </h4>
+                                        <p>
+                                            德州学院计算机科学与技术专业<br>
+                                            2012年入学，主要学习Java语言，主要从事Java web和Android开发。
+                                        </p>
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                            <ol class="flex-control-nav">
+                                <li>
+                                    <a class="active">
+                                        1
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        2
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        3
+                                    </a>
+                                </li>
+                            </ol>
+                            <ul class="flex-direction-nav">
+                                <li>
+                                    <a class="prev" href="#">
+                                        Prev
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="next" href="#">
+                                        Next
+                                    </a>
+                                </li>
+                            </ul>
+                        </section>
+                        <!-- End of slider -->
+                    </div>
+                    <!-- End of homepage slider section -->
+                </div>
+                <!-- End of one half -->
+            </div>
+            <!-- End of content wrapper -->
+            <!-- Clear Fix -->
+            <div class="clear">
+            </div>
+        </div>
+        <!-- End of content wrapper -->
+        <!-- Start of bottom wrapper -->
+        <div id="bottom_wrapper">
+            <!-- Start of content wrapper -->
+            <div class="content_wrapper">
+                <!-- Start of one fourth first -->
+                <div class="one_fourth_first">
+                    <h5>
+                        关注我们
+                        <a name="attentionus">
+                    </h5>
+                    <ul>
+                        <li>
+                            <img src="./wx_files/qrcode_for_gh_c0bc270d162b_430.jpg">
+                        </li>
+                    </ul>
+                </div>
+                <!-- End of one fourth first -->
+                <!-- Start of one fourth -->
+                <div class="one_fourth">
+                    <h5>
+                        资源
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="http://edukx.sinaapp.com/weixin/" target="_blank">
+                                常见问题
+                            </a>
+                        </li>
+                         
+                    </ul>
+                </div>
+                <!-- End of one fourth -->
+                <!-- Start of one fourth -->
+                <div class="one_fourth">
+                    <h5>
+                        联系我们
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="mailto:2515238312@qq.com" target="_blank">联系邮箱</a>
+                        </li>
+                        <li>
+                            <a href="javascript:(alert('建设中。。。'))">
+                                微博
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:(alert('建设中。。。'))">
+                                博客
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:(alert('建设中。。。'))">
+                                贴吧
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End of one fourth -->
+                <!-- Start of one fourth -->
+                <div class="one_fourth">
+                    <h5>
+                        鸣谢
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="https://mp.weixin.qq.com/" target="_blank">
+                                微信公共平台
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.thinkphp.cn/" target="_blank">
+                                ThinkPHP
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://sinacloud.com/" target="_blank">
+                                新浪云
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End of one fourth -->
+            </div>
+            <!-- End of content wrapper -->
+            <!-- Clear Fix -->
+            <div class="clear">
+            </div>
+        </div>
+        <!-- End of bottom wrapper -->
+        <!-- Start of copyright wrapper -->
+        <div id="copyright_wrapper">
+            <!-- Start of content wrapper -->
+            <div class="content_wrapper">
+                <!-- Start of copyright message -->
+                <div class="copyright_message">
+                    &copy; 2015 高校e生活 - risingstar团队 from
+                    <a href="http://www.dzu.edu.cn/" title="德州学院" target="_blank">
+                        德州学院
+                    </a>
+                </div>
+                <!-- End of copyright message -->
+                <!-- Start of social icons -->
+                <div class="social_icons">
+                    <div class="bdsharebuttonbox">
+                        <a href="#" class="bds_more" data-cmd="more">
+                        </a>
+                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">
+                        </a>
+                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">
+                        </a>
+                        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">
+                        </a>
+                        <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">
+                        </a>
+                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">
+                        </a>
+                    </div>
+                    <script>
+                        window._bd_share_config = {
+                            "common": {
+                                "bdSnsKey": {},
+                                "bdText": "",
+                                "bdMini": "2",
+                                "bdMiniList": false,
+                                "bdPic": "",
+                                "bdStyle": "2",
+                                "bdSize": "16"
+                            },
+                            "share": {}
+                        };
+                        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~ ( - new Date() / 36e5)];
+                    </script>
+                </div>
+                <!-- End of social icons -->
+            </div>
+            <!-- End of content wrapper -->
+            <!-- Clear Fix -->
+            <div class="clear">
+            </div>
+        </div>
+        <!-- End of copyright wrapper -->
+    </body>
+    
+    </html>
